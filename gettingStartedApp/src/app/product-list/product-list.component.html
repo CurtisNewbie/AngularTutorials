@@ -1,0 +1,20 @@
+<div *ngFor="let p of products; index as i">
+  <h2 [title]="p.name" [routerLink]="['/products', i]">[{{i}}] {{p.name}}</h2>
+  <p *ngIf="p.description">
+    <b>Descriptions:</b> {{p.description}}
+  </p>
+
+  <p *ngIf="p.price">
+    <b>Price:</b> {{p.price}}
+  </p>
+
+  <button class="button" (click)="share()">Share</button>
+  <!-- pass p to component product-alerts -->
+  <app-product-alerts [product]="p" (notify)="onNotify()"></app-product-alerts>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

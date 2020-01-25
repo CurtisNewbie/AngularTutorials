@@ -1,0 +1,5 @@
+<!-- shows if the price is greater than 700 -->
+<p *ngIf="product.price > 700">
+  <!-- EventEmitter that sends event to the parent -->
+  <button (click)="notify.emit()">Notify Me</button>
+</p>
