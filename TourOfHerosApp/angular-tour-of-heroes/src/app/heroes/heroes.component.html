@@ -1,0 +1,28 @@
+<h1>Heroes Component</h1>
+<ul class="heroes">
+
+    <!-- <div><span >Hero Id:</span> {{h.id}}</div> -->
+    <!-- two way binding for description
+                <div><label>name: <input [(ngModel)]="h.description" placeholder="hero's decscription" /></label></div>
+                <div><span >Hero Description:</span> {{h.description}}</div> -->
+
+    <!-- event binding, onSelect(). CSS Class binding [class.selectedCssName] -->
+    <li *ngFor="let h of heroes; let i = index" (click)="onSelect(i, h)" [class.selectedStyle]="h === selectedHero">
+        <a routerLink="/hero/detail/{{h.id}}">
+            <!-- | is a pipe operator that activates the built-in UppercasePipe-->
+            <div><span class="badge">Id: {{h.id}}</span> {{h.name | uppercase}}</div>
+        </a>
+    </li>
+</ul>
+
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+
+<!--
+<div *ngIf="selectedHero">
+    <h2>Current Selection</h2>
+    <div><span>Name: </span>{{selectedHero.name | uppercase}}</div>
+    <div><span>id: </span>{{selectedHero.id}}</div>
+    <div><label>Description: <input [(ngModel)]="selectedHero.description"
+                placeholder="Description of selected hero..." /></label></div>
+</div>
+-->
